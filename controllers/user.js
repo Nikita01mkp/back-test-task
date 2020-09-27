@@ -52,6 +52,7 @@ const getUser = function (req, res) {
   if (Object.keys(req.body).length === 0) {
     return res.status(403).send("bad request")
   }
+
   const id = req.body.id;
   let copyUser = {};
 
@@ -61,9 +62,12 @@ const getUser = function (req, res) {
       return res.status(400).send("Error, try again");
     }
 
+    console.log('GET_USER DATA', user);
+
     copyUser.name = user.name;
     copyUser.age = user.age;
     copyUser.gender = user.gender;
+    copyUser.email = user.email
 
     res.send(copyUser);
   });

@@ -34,14 +34,12 @@ const createToken = function (id, role) {
 
 function checkToken(req, res, next) {
 
-
-
-    if(req.query.token === undefined){
+    if(req.body.token === undefined){
         return res.status(403).send('Token is empty');
     }
 
-    const x = req.query.token;
-    const id = jwt.decode(x);
+    const userToken = req.body.token;
+    const id = jwt.decode(userToken);
 
     if (id.exp < (Math.floor(Date.now() / 1000))) {
         return res.status(401).send("Token is bad")
@@ -58,7 +56,7 @@ function checkToken(req, res, next) {
         }
 
         const token = auth.token;
-        if (x === token) {
+        if (userToken === token) {
             req.body.id = id.userId;
             next();
         } else {

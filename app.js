@@ -18,7 +18,7 @@ mongoose.connect("mongodb://localhost:27017/usersdb", {useNewUrlParser: true}, f
         return console.log(err);
     }
     app.listen(3000, function () {
-        console.log("Сервер ожидает подключения...");
+        console.log("Server is waiting...");
     });
 });
 mongoose.set('useFindAndModify', false);
