@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const app = express();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const userRouter = require("./user.js");
+const adminRouter = require("./admin.js");
 
-module.exports = router;
+app.use('/user', userRouter)
+app.use("/api/control", adminRouter);
