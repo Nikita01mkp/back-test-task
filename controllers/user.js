@@ -16,7 +16,6 @@ const addUser = function (req, res) {
   const userPassword = bcrypt.hashSync(req.body.password, saltRounds);
   const userEmail = req.body.mail;
   const userName = req.body.name;
-  const userAge = req.body.age;
 
 
   const newUser = new User({
@@ -24,7 +23,6 @@ const addUser = function (req, res) {
     password: userPassword,
     email: userEmail,
     name: userName,
-    age: userAge,
     userId: saltRounds,
     userRole: 'User',
   });
@@ -65,8 +63,6 @@ const getUser = function (req, res) {
     console.log('GET_USER DATA', user);
 
     copyUser.name = user.name;
-    copyUser.age = user.age;
-    copyUser.gender = user.gender;
     copyUser.email = user.email
 
     res.send(copyUser);

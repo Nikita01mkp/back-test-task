@@ -17,8 +17,10 @@ mongoose.connect("mongodb://localhost:27017/usersdb", {useNewUrlParser: true}, f
         console.log("ERROR DANGERS THIS IS PROBLEM WITH MONGOOSE");
         return console.log(err);
     }
-    app.listen(3000, function () {
-        console.log("Server is waiting...");
-    });
 });
+
+app.listen(3000, function () {
+    console.log("Server is waiting...");
+});
+
 mongoose.set('useFindAndModify', false);

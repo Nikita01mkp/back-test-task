@@ -8,8 +8,6 @@ const userScheme = new Schema({
     name: String,
     surname: String,
     DOB: Date,
-    age: Number,
-    gender: String,
     userId: String,
     token: String,
     userRole: String,
